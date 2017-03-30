@@ -1,0 +1,41 @@
+body {
+    color: #fb5;
+    background-color: #334;
+}
+
+header {
+    color: #ec8;
+    background-color: #334;
+    border-color: #667
+}
+
+
+header nav {
+    color: white;
+    background-color: #789;
+    border-color: #667;
+}
+
+
+article {
+    color: #223;
+    background-color: #edc;
+    border-color: #667;
+}
+
+header nav ul {
+    border-color: #99a;
+}
+
+header nav a.here:link,
+header nav a.here:hover,
+header nav a.here:visited,
+header nav a.here:active {
+    color: #eef;
+    background-color: #41c496;
+    padding: 10px;
+}
+
+article li a {
+    background: rgba(65, 196, 150, 0.68);
+}

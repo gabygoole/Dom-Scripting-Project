@@ -1,0 +1,17 @@
+p {
+    line-height: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+#intro > a {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+article li a {
+    font-size: 14px;
+    border-radius: 3px;
+}
