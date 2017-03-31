@@ -11,7 +11,8 @@ nav a {
     text-decoration: none;
     color: cornflowerblue;
 }
-article li a {
+
+article ul.pov a {
     font-size: 14px;
     border-radius: 3px;
 }

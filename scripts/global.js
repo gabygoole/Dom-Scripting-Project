@@ -150,3 +150,62 @@ function moveElement(elementId,final_x,final_y,interval) {
     var tmp = "moveElement('" + elementId + "'," + final_x + "," + final_y + "," + interval+")";
     elem.movement = setTimeout(tmp,interval);
 }
+
+function prepareInternalNav() {
+    if(!document.getElementsByTagName){
+        return false
+    }
+
+    if(!document.getElementById){
+        return false;
+    }
+
+    var article = document.getElementsByTagName("article")[0];
+    var links = article.getElementsByTagName("a");
+    for(var i = 0; i < links.length; i++){
+        var sectionId = links[i].getAttribute("href").split("#")[1];
+        if(!document.getElementById(sectionId)) continue;
+        // var section = document.getElementById(sectionId);
+        // section.style.display = "none";
+        links[i].destination = sectionId;
+        links[i].onclick  = function(){
+            showSection(this.destination);
+            return false;
+        }
+    }
+}
+
+function showSection(Id){
+    if(!document.getElementsByTagName){
+        return false;
+    }
+
+    var sections = document.getElementsByTagName("section");
+    for(var i = 0; i < sections.length; i++){
+        if(sections[i].getAttribute("id") != Id){
+            sections[i].style.display = "none";
+        } else {
+            sections[i].style.display = "block";
+        }
+    }
+}
+
+addLoadEvent(prepareInternalNav);
+
+function preparePlaceholder() {
+    if(!document.getElementById) {
+        return false;
+    }
+
+    if(!document.createElement) {
+        return false;
+    }
+
+    if(!document.createTextNode) {
+        return false;
+    }
+
+}
+function prepareGallery() {
+    
+}
