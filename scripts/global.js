@@ -206,6 +206,9 @@ function preparePlaceholder() {
         return false;
     }
 
+    if(!document.getElementsByClassName("thumbnails")[0]){
+        return false;
+    }
     var placeholder = document.createElement("img");
     placeholder.setAttribute("id","placeholder");
     placeholder.setAttribute("src","../img/placeholder.gif");
@@ -224,6 +227,7 @@ addLoadEvent(preparePlaceholder);
 function prepareGallerryEffect() {
     if(!document.getElementsByClassName) return false;
     if(!document.getElementsByTagName) return false;
+    if(!document.getElementsByClassName("thumbnails")[0]) return false;//一定要加数组的索引
     var gallery = document.getElementsByClassName("thumbnails")[0];
     var links = gallery.getElementsByTagName("a");
     for(var i = 0; i < links.length; i++) {
@@ -250,3 +254,43 @@ function showPic(whichLink) {
 }
 
 addLoadEvent(prepareGallerryEffect);
+
+function stripeTables() {
+    if (!document.getElementById) return false;
+    if(!document.getElementById("games-table")) {
+        return false;
+    }
+
+    var gameTable = document.getElementById("games-table");
+    var lines = gameTable.getElementsByTagName("tr");
+    var odd = false;
+    for(var i = 0; i < lines.length; i++){
+        if(odd == false) {
+            odd = true;
+        } else {
+            addClass(lines[i],"stripe");
+            odd = false;
+        }
+    }
+}
+
+addLoadEvent(stripeTables);
+
+function highlightRows() {
+    if(!document.getElementsByTagName) return false;
+    var tbody = document.getElementsByTagName("tbody")[0];
+    var rows = tbody.getElementsByTagName("tr");
+    for (var i = 0 ; i < rows.length; i++) {
+        rows[i].oldClassName = rows[i].className;
+        rows[i].onmouseover = function () {
+            addClass(this,"highlight");
+        }
+
+        rows[i].onmouseout = function () {
+            this.className = this.oldClassName;
+        }
+    }
+
+}
+
+addLoadEvent(highlightRows);

@@ -39,3 +39,22 @@ header nav a.here:active {
 article ul.pov a {
     background: rgba(65, 196, 150, 0.68);
 }
+
+th {
+    color: #edc;
+    background-color: #455;
+}
+
+tr td {
+    color: #233;
+    background-color: #eb6;
+}
+
+.stripe td{
+    background-color: #ec8;
+}
+
+tr.highlight td{
+    color: #223;
+    background-color: #cba;
+}

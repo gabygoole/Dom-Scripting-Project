@@ -38,7 +38,7 @@ article {
     background-size: cover;
 }
 
-#live header > div {
+#games header > div {
     background: url("../img/sao4.jpg");
     background-size: cover;
 }
@@ -93,4 +93,8 @@ section {
 
 #placeholder {
     width: 100%;
+}
+
+td {
+    padding:.5em 3em;
 }
