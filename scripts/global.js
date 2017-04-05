@@ -192,6 +192,7 @@ function showSection(Id){
 
 addLoadEvent(prepareInternalNav);
 
+/*准备图片库*/
 function preparePlaceholder() {
     if(!document.getElementById) {
         return false;
@@ -205,7 +206,47 @@ function preparePlaceholder() {
         return false;
     }
 
+    var placeholder = document.createElement("img");
+    placeholder.setAttribute("id","placeholder");
+    placeholder.setAttribute("src","../img/placeholder.gif");
+    placeholder.setAttribute("alt","choose a image");
+    var description = document.createElement("p");
+    var text = document.createTextNode("选择一张图片");
+    description.appendChild(text);
+    description.setAttribute("id","descriptionText")
+    var gallery = document.getElementsByClassName("thumbnails")[0];//这个返回的是数组
+    insertAfter(description,gallery);
+    insertAfter(placeholder,description);
 }
-function prepareGallery() {
-    
+
+addLoadEvent(preparePlaceholder);
+
+function prepareGallerryEffect() {
+    if(!document.getElementsByClassName) return false;
+    if(!document.getElementsByTagName) return false;
+    var gallery = document.getElementsByClassName("thumbnails")[0];
+    var links = gallery.getElementsByTagName("a");
+    for(var i = 0; i < links.length; i++) {
+        links[i].onclick = function () {
+            return showPic(this);
+        }
+    }
 }
+
+function showPic(whichLink) {
+    if (!document.getElementById("placeholder")) return true;
+    var source = whichLink.getAttribute("href");
+    var placeholder = document.getElementById("placeholder");
+    placeholder.setAttribute("src",source);
+
+    var description = document.getElementById("descriptionText");
+    if (whichLink.getAttribute("title")) {
+        description.firstChild.nodeValue = whichLink.getAttribute("title");
+    } else {
+        description.firstChild.nodeValue = "";
+    }
+
+    return false;
+}
+
+addLoadEvent(prepareGallerryEffect);

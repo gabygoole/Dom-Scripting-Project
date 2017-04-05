@@ -90,3 +90,7 @@ section {
 .thumbnails li {
     display: inline-block;
 }
+
+#placeholder {
+    width: 100%;
+}
