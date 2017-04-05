@@ -278,6 +278,7 @@ addLoadEvent(stripeTables);
 
 function highlightRows() {
     if(!document.getElementsByTagName) return false;
+    if(!document.getElementsByTagName("tbody")[0]);
     var tbody = document.getElementsByTagName("tbody")[0];
     var rows = tbody.getElementsByTagName("tr");
     for (var i = 0 ; i < rows.length; i++) {
